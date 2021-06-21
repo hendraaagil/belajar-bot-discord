@@ -44,6 +44,12 @@ bot.on('message', (message) => {
       case 'clear':
         commands.get('clear').execute(message, args);
         break;
+      case 'delay':
+        commands.get('delay').execute(message);
+        break;
+      case 'cooldown':
+        commands.get('cooldown').execute(message);
+        break;
     }
   }
 });
