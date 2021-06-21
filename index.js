@@ -41,6 +41,9 @@ bot.on('message', (message) => {
       case 'help':
         commands.get('help').execute(message);
         break;
+      case 'clear':
+        commands.get('clear').execute(message, args);
+        break;
     }
   }
 });
