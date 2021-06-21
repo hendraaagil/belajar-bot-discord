@@ -19,6 +19,12 @@ files.map((file) => {
 
 bot.on('ready', () => {
   console.log('Bot Sudah Online!');
+
+  bot.user
+    .setActivity('Warga RPL', {
+      type: 'LISTENING',
+    })
+    .catch(console.error);
 });
 
 bot.on('message', (message) => {
