@@ -37,8 +37,23 @@ bot.on('message', (message) => {
         .setTitle('Informasi Bot')
         .addField('Nama : ', 'Hendra Agil Syaputra')
         .addField('Version : ', version)
+        .setDescription(
+          'Ini adalah bot untuk belajar membuat Bot di Discord dengan Node.js dan Discord.js'
+        )
+        .setURL('https://hendraaagil.space/')
+        .setColor('#2A61CC')
         .setFooter('Created by hendraaagil');
       message.channel.send(embed);
+      break;
+    case 'help':
+      const helpEmbed = new MessageEmbed()
+        .setTitle('Commands yang bisa digunakan')
+        .addField('PREFIX', PREFIX)
+        .addField('ping', 'ping bot!')
+        .addField('info', 'all about bot informations')
+        .setFooter('My Bot @' + version)
+        .setColor('#D83A56');
+      message.channel.send(helpEmbed);
       break;
   }
 });
