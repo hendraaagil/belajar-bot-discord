@@ -1,0 +1,7 @@
+{
+  "author": "Hendra Agil [@hendraaagil]",
+  "bot_name": "Tutorial Bot",
+  "description": "Ini adalah bot untuk belajar membuat Bot di Discord dengan Node.js dan Discord.js",
+  "prefix": ";",
+  "version": "1.0.0"
+}
