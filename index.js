@@ -74,6 +74,9 @@ bot.on('message', (message) => {
       case 'satpam':
         commands.get('satpam').execute(message);
         break;
+      case 'kick':
+        commands.get('kick').execute(message);
+        break;
     }
   }
 });
