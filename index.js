@@ -83,6 +83,9 @@ bot.on('message', (message) => {
       case 'spam':
         commands.get('spam').execute(message, args);
         break;
+      case 'setRole':
+        commands.get('setRole').execute(message);
+        break;
     }
   }
 });
