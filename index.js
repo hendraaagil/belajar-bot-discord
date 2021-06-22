@@ -27,6 +27,24 @@ bot.on('ready', () => {
     .catch(console.error);
 });
 
+bot.on('guildMemberAdd', (member) => {
+  const channel = member.guild.channels.cache.find(
+    (ch) => ch.id === '856450580218511372'
+  );
+  const rule = member.guild.channels.cache.find(
+    (ch) => ch.id === '856894054175866965'
+  );
+
+  if (!channel) return;
+
+  console.log(member);
+  if (member.guild.id === '856353394436079616') {
+    channel.send(
+      `Halo, ${member}, Selamat datang di server BotTest! Silahkan baca peraturan di ${rule}`
+    );
+  }
+});
+
 bot.on('message', (message) => {
   let args = message.content.substring(prefix.length).split(' ');
 
