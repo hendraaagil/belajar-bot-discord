@@ -77,6 +77,9 @@ bot.on('message', (message) => {
       case 'kick':
         commands.get('kick').execute(message);
         break;
+      case 'ban':
+        commands.get('ban').execute(message);
+        break;
     }
   }
 });

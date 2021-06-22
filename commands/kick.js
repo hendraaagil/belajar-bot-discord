@@ -21,6 +21,9 @@ module.exports = {
               message.channel.bulkDelete(1);
               message.reply(`User gagal dikick`);
             });
+        } else {
+          message.channel.bulkDelete(1);
+          message.reply('Silahkan mention user!');
         }
       } else {
         message.channel.bulkDelete(1);
