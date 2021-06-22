@@ -51,7 +51,7 @@ bot.on('guildMemberAdd', (member) => {
 bot.on('message', (message) => {
   let args = message.content.substring(prefix.length).split(' ');
 
-  if (message.content.charAt(0) === ';') {
+  if (message.content.startsWith(prefix)) {
     switch (args[0]) {
       case 'ping':
         commands.get('ping').execute(message);
@@ -79,6 +79,9 @@ bot.on('message', (message) => {
         break;
       case 'ban':
         commands.get('ban').execute(message);
+        break;
+      case 'spam':
+        commands.get('spam').execute(message, args);
         break;
     }
   }
