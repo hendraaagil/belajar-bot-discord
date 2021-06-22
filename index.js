@@ -7,16 +7,18 @@ const token = 'ODU2MzUyODAwOTgzNDgyMzY4.YM_ysg.Md78cQdO_9Bzb6i-kdSw_uLUwNU';
 const bot = new Client();
 const commands = new Collection();
 
+// Get all file in commands folder
 const files = fs
   .readdirSync('./commands')
   .filter((file) => file.endsWith('.js'));
 
+// Save each file in commands folder to commands collection
 files.map((file) => {
   const command = require(`./commands/${file}`);
-  console.log(command);
   commands.set(command.name, command);
 });
 
+// Notification if bot ready
 bot.on('ready', () => {
   console.log('Bot Sudah Online!');
 
@@ -27,6 +29,7 @@ bot.on('ready', () => {
     .catch(console.error);
 });
 
+// Send message if new member landed
 bot.on('guildMemberAdd', (member) => {
   const channel = member.guild.channels.cache.find(
     (ch) => ch.id === '856450580218511372'
@@ -37,7 +40,6 @@ bot.on('guildMemberAdd', (member) => {
 
   if (!channel) return;
 
-  console.log(member);
   if (member.guild.id === '856353394436079616') {
     channel.send(
       `Halo, ${member}, Selamat datang di server BotTest! Silahkan baca peraturan di ${rule}`
@@ -45,6 +47,7 @@ bot.on('guildMemberAdd', (member) => {
   }
 });
 
+// List all commands
 bot.on('message', (message) => {
   let args = message.content.substring(prefix.length).split(' ');
 
@@ -68,8 +71,12 @@ bot.on('message', (message) => {
       case 'cooldown':
         commands.get('cooldown').execute(message);
         break;
+      case 'satpam':
+        commands.get('satpam').execute(message);
+        break;
     }
   }
 });
 
+// Activate bot
 bot.login(token);
