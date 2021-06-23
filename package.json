@@ -3,6 +3,13 @@
   "author": "Hendra Agil (@hendraaagil)",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hendraaagil/belajar-bot-discord.git"
+  },
   "license": "MIT",
   "dependencies": {
     "discord.js": "^12.5.3",
