@@ -3,7 +3,7 @@ module.exports = {
   description: 'Untuk membersihkan chat',
   execute(message, args) {
     const role = message.member.roles.cache.find(
-      (role) => role.id === '856900957757767710'
+      (role) => role.id === process.env.ADMIN_ID
     );
     if (role) {
       if (!args[1]) {

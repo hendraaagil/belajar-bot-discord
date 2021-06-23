@@ -1,8 +1,9 @@
 const fs = require('fs');
 const { Client, Collection } = require('discord.js');
 const { prefix } = require('./data/bot.json');
+require('dotenv').config();
 
-const token = 'ODU2MzUyODAwOTgzNDgyMzY4.YM_ysg.Md78cQdO_9Bzb6i-kdSw_uLUwNU';
+const token = process.env.BOT_TOKEN;
 
 const bot = new Client();
 const commands = new Collection();
@@ -31,18 +32,18 @@ bot.on('ready', () => {
 
 // Send message if new member landed
 bot.on('guildMemberAdd', (member) => {
-  const channel = member.guild.channels.cache.find(
-    (ch) => ch.id === '856450580218511372'
+  const greeting = member.guild.channels.cache.find(
+    (ch) => ch.id === process.env.CH_GREETING_ID
   );
   const rule = member.guild.channels.cache.find(
-    (ch) => ch.id === '856894054175866965'
+    (ch) => ch.id === process.env.CH_RULE_ID
   );
 
-  if (!channel) return;
+  if (!greeting) return;
 
-  if (member.guild.id === '856353394436079616') {
-    channel.send(
-      `Halo, ${member}, Selamat datang di server BotTest! Silahkan baca peraturan di ${rule}`
+  if (member.guild.id === process.env.SERVER_ID) {
+    greeting.send(
+      `Halo ${member}, Selamat datang di server ${member.guild.name} Silahkan baca peraturan di ${rule}`
     );
   }
 });

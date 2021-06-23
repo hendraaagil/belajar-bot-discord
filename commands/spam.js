@@ -7,7 +7,7 @@ module.exports = {
     if (args[1] === 'start') {
       spam = setInterval(() => {
         message.channel.send(
-          'Jangan lupa kunjungi website saya di https://hendraaagil.space/\n**TerimaKasih**'
+          'Jangan lupa kunjungi website saya di https://hendraaagil.space/\n**Terima Kasih**'
         );
       }, 1000 * 2);
     } else if (args[1] === 'stop') {

@@ -2,7 +2,7 @@ module.exports = {
   name: 'removeRole',
   description: 'Untuk remove role member',
   execute(message) {
-    if (message.member.roles.cache.find((r) => r.name === 'Satpam')) {
+    if (message.member.roles.cache.find((r) => r.id === process.env.ADMIN_ID)) {
       const user = message.mentions.users.first();
       if (user) {
         const userRemove = message.guild.member(user);
@@ -16,11 +16,10 @@ module.exports = {
           member.roles.remove(role.id);
           message.reply(`Berhasil menghapus role ${role} dari ${member}!!!`);
         } else {
-          message.reply('User tidak ada di dalam server ini');
         }
       } else {
         message.reply(
-          'Silahkan mention user yang ingin dihapus role memebernya'
+          'User yang ingin diremove rolenya tidak ada di dalam server ini'
         );
       }
     } else {

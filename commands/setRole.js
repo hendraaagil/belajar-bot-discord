@@ -2,7 +2,11 @@ module.exports = {
   name: 'setRole',
   description: 'Untuk set role member',
   execute(message) {
-    if (message.member.roles.cache.find((role) => role.name === 'Satpam')) {
+    if (
+      message.member.roles.cache.find(
+        (role) => role.id === process.env.ADMIN_ID
+      )
+    ) {
       const user = message.mentions.users.first();
 
       if (user) {

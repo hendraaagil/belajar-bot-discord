@@ -3,7 +3,7 @@ module.exports = {
   description: 'Untuk ban member',
   execute(message) {
     const role = message.member.roles.cache.find(
-      (role) => role.id === '856900957757767710'
+      (role) => role.id === process.env.ADMIN_ID
     );
     if (role) {
       const userBan = message.mentions.users.first();
