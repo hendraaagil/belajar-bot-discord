@@ -1,5 +1,6 @@
 {
   "name": "vip-bot-tutorial",
+  "author": "Hendra Agil (@hendraaagil)",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
