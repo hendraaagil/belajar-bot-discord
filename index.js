@@ -86,6 +86,12 @@ bot.on('message', (message) => {
       case 'setRole':
         commands.get('setRole').execute(message);
         break;
+      case 'removeRole':
+        commands.get('removeRole').execute(message);
+        break;
+      case 'getRole':
+        commands.get('getRole').execute(message);
+        break;
     }
   }
 });
