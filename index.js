@@ -32,11 +32,15 @@ http
 bot.on('ready', () => {
   console.log('Bot Sudah Online!');
 
-  bot.user
-    .setActivity('Warga RPL', {
-      type: 'LISTENING',
-    })
-    .catch(console.error);
+  const peoples = ['Warga RPL', 'Warga Indonesia', 'Warga Warga'];
+  let i = 0;
+  setInterval(() => {
+    bot.user
+      .setActivity(peoples[i++ % peoples.length], {
+        type: 'LISTENING',
+      })
+      .catch(console.error);
+  }, 3000);
 });
 
 // Send message if new member landed
@@ -64,7 +68,7 @@ bot.on('message', (message) => {
   if (message.content.startsWith(prefix)) {
     switch (args[0]) {
       case 'ping':
-        commands.get('ping').execute(message);
+        commands.get('ping').execute(client, message);
         break;
       case 'info':
         commands.get('info').execute(message, args);
