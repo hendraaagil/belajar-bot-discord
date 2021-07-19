@@ -68,7 +68,7 @@ bot.on('message', (message) => {
   if (message.content.startsWith(prefix)) {
     switch (args[0]) {
       case 'ping':
-        commands.get('ping').execute(client, message);
+        commands.get('ping').execute(bot, message);
         break;
       case 'info':
         commands.get('info').execute(message, args);

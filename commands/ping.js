@@ -1,8 +1,8 @@
 module.exports = {
   name: 'ping',
   description: 'Ping member!',
-  execute(client, message) {
+  execute(bot, message) {
     message.channel.bulkDelete(1);
-    message.reply(`pong! \`${client.ws.ping}ms\``);
+    message.reply(`pong! \`${bot.ws.ping}ms\``);
   },
 };
