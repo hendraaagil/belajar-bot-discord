@@ -1,4 +1,5 @@
 const fs = require('fs');
+const http = require('http');
 const { Client, Collection } = require('discord.js');
 const { prefix } = require('./data/bot.json');
 require('dotenv').config();
@@ -18,6 +19,14 @@ files.map((file) => {
   const command = require(`./commands/${file}`);
   commands.set(command.name, command);
 });
+
+// createServer
+http
+  .createServer(function (req, res) {
+    res.write(`I'm alive!`);
+    res.end();
+  })
+  .listen(8080);
 
 // Notification if bot ready
 bot.on('ready', () => {
